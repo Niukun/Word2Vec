@@ -18,7 +18,7 @@ public class BuildModel_01 {
 	private static Logger log = LoggerFactory.getLogger(BuildModel_01.class);
 	public static void main(String[] args) throws Exception {
 		log.info("Load data....");
-        SentenceIterator iter = new LineSentenceIterator(new File("C:/D/NLPIR/paper/files/merge/sohusite/sohusiteSegstopWordsRemoved.txt"));
+        SentenceIterator iter = new LineSentenceIterator(new File("C:/D/NLPIR/paper/files/merge/tensite/tensiteSegstopWordsRemoved.txt"));
         iter.setPreProcessor(new SentencePreProcessor() {
             public String preProcess(String sentence) {
                 return sentence.toLowerCase();
@@ -42,7 +42,7 @@ public class BuildModel_01 {
         log.info("Fitting Word2Vec model....");
         vec.fit();
         
-        WordVectorSerializer.writeWordVectors(vec, "C:/D/NLPIR/paper/files/merge/sohusite/sohusiteVector.txt");
+        WordVectorSerializer.writeWordVectors(vec, "C:/D/NLPIR/paper/files/merge/tensite/tensiteVector.txt");
 
         log.info("Closest Words:");
         Collection<String> lst = vec.wordsNearest("北京", 10);
